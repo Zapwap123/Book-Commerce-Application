@@ -1,6 +1,6 @@
 const Book = require("../models/book");
 const jwt = require("jsonwebtoken");
-const multer = require("multer");
+// const multer = require("multer");
 
 router.post("/", async (req, res) => {
   const { title, description, quantity, token } = req.body;
