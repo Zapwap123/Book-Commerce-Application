@@ -31,7 +31,7 @@ dotenv.config();
 
 // connect to mongoDB
 mongoose.connect(
-  `mongodb+srv://asetha:${process.env.MONGO_DB_PASSWORD}@bookcommercecluster.xnitvce.mongodb.net/?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_DATABASE_NAME}.xnitvce.mongodb.net/?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
