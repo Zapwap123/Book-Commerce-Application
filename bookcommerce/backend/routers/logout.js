@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 
-router.post("/", async (req, res) => {
+router.post("/", (req, res) => {
+  const { token } = req.body;
   const user = jwt.verify(token, process.env.JWT_SECRET);
 
   if (!user) {
@@ -9,9 +10,9 @@ router.post("/", async (req, res) => {
   }
 
   if (user.role === "admin" || user.role === "user") {
-    const token = null;
+    const newToken = null;
 
-    res.json({ status: "ok", data: token });
+    res.json({ status: "ok", data: newToken });
   }
   res.json({ status: "error", error: "Invalid username/password" });
 });

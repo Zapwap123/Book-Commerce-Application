@@ -2,9 +2,9 @@ const router = require("express").Router();
 const Book = require("../models/book");
 const jwt = require("jsonwebtoken");
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const response = await Book.find().toArray(function (err, result) {
+    await Book.find().toArray(function (err, response) {
       if (err) throw err;
       console.log("List of all books successfully retrived: ", response);
       res.json({ status: "ok", data: response });

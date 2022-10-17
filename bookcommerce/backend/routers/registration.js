@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 router.post("/", async (req, res) => {
   const { username, password: plainPassword, role } = req.body;
 
+  console.log("Username here: " + username);
   if (!username || typeof username !== "string") {
     return res.json({ status: "error", error: "Invalid username" });
   }
