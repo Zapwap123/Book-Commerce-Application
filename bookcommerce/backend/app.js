@@ -15,8 +15,16 @@ const fileUpload = require("express-fileupload");
 
 // const DB = require("./Config/DBConection");
 
-//MySql Routes
+//Directories for Routing the application
 const userRegistration = require("./routers/registration");
+const userLogin = require("./routers/login");
+const userLogout = require("./routers/logout");
+const addToBookList = require("./routers/addBook");
+const updateBookList = require("./routers/updateBook");
+const deleteFromBookList = require("./routers/deleteBook");
+const getBookList = require("./routers/listOfBooks");
+const addBookToCart = require("./routers/addToCart");
+const cartHistoryOfUsers = require("./routers/userCartHistory");
 
 //Config for .env file
 dotenv.config();
@@ -57,5 +65,13 @@ app.use("/upload", express.static("routers/uploads"));
 
 // Api Routes for accessing the all services
 app.use("/api/register", userRegistration);
+app.use("/api/login", userLogin);
+app.use("/api/logout", userLogout);
+app.use("/api/addbook", addToBookList);
+app.use("/api/bookupdate", updateBookList);
+app.use("/api/deletebook", deleteFromBookList);
+app.use("/api/allbooks", getBookList);
+app.use("/api/addtocart", addBookToCart);
+app.use("/api/carthistory", cartHistoryOfUsers);
 
 app.listen(PORT, () => console.log("Listening on port " + PORT));
