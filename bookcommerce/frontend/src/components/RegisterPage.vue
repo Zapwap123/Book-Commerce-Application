@@ -33,6 +33,7 @@
       >
       Sign Up
       </button>
+      <h4>Already a user? <router-link to="/login">Login</router-link></h4>
       </form>
       
       

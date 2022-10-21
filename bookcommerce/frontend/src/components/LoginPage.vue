@@ -22,6 +22,7 @@
     </div>
 
     <button class="btn btn-primary btn-block">Login</button>
+    <h4>Not registed? <router-link to="/register">Sign Up</router-link></h4>
     
     </form>
     

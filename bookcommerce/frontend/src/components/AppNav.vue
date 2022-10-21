@@ -16,14 +16,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home </a
-          >
+          <router-link class="nav-link" to="/home"
+            >Home </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <router-link class="nav-link" to="/login">Login</router-link>
         </li>
-        
+        <li class="nav-item">
+          <router-link class="nav-link" to="/register">Sign Up</router-link>
+        </li>
+
         <!-- <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li> -->
