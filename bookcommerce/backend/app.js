@@ -25,6 +25,7 @@ const deleteFromBookList = require("./routers/deleteBook");
 const getBookList = require("./routers/listOfBooks");
 const addBookToCart = require("./routers/addToCart");
 const cartHistoryOfUsers = require("./routers/userCartHistory");
+const userVerification = require("./routers/userDetails");
 
 //Config for .env file
 dotenv.config();
@@ -73,5 +74,6 @@ app.use("/api/deletebook", deleteFromBookList);
 app.use("/api/allbooks", getBookList);
 app.use("/api/addtocart", addBookToCart);
 app.use("/api/carthistory", cartHistoryOfUsers);
+app.use("/api/user", userVerification);
 
 app.listen(PORT, () => console.log("Listening on port " + PORT));
