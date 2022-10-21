@@ -3,15 +3,26 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
-  const { username, password: plainPassword, role } = req.body;
+  const {
+    username,
+    password: plainPassword,
+    password_confirm,
+    role,
+  } = req.body;
 
-  console.log("Username here: " + username);
   if (!username || typeof username !== "string") {
     return res.json({ status: "error", error: "Invalid username" });
   }
 
   if (!plainPassword || typeof plainPassword !== "string") {
     return res.json({ status: "error", error: "Invalid password" });
+  }
+
+  if (plainPassword !== password_confirm) {
+    return res.json({
+      status: "error",
+      error: "Passwords entered must be the same",
+    });
   }
 
   if (plainPassword.length < 5) {
@@ -31,7 +42,6 @@ router.post("/", async (req, res) => {
     });
     console.log("User created successfully: ", response);
   } catch (error) {
-    console.log(error);
     if (error.code === 11000) {
       return res.json({ status: "error", error: "Username already in use" });
     }
