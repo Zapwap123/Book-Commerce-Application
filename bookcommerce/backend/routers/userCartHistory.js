@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Cart = require("../models/cartHistory");
 const jwt = require("jsonwebtoken");
-const farmhash = require("farmhash");
 
 router.post("/", async (req, res) => {
   const { token } = req.body;
