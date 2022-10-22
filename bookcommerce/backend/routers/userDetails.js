@@ -16,7 +16,9 @@ router.get("/", async (req, res) => {
     const token = authorization.split(" ")[1];
     const jwtUser = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await User.findOne({ where: { _id: jwtUser.id } }).lean();
+    const { username } = jwtUser;
+
+    const user = await User.findOne({ username }).lean();
     if (!user) {
       return res.json({
         status: "error",
@@ -29,6 +31,7 @@ router.get("/", async (req, res) => {
       user: {
         userId: user._id,
         username: user.username,
+        role: user.role,
       },
     });
   } catch (error) {

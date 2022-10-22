@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav />
+    <Nav  />
     <div>
       <router-view />
     </div>
@@ -8,14 +8,27 @@
 </template>
 
 <script>
+import axios from 'axios';
 import Nav  from "./components/AppNav.vue";
-// import Login from "./components/LoginPage.vue";
+
+
 export default {
   name: "App",
   components:{
     Nav,
-    // Login
-  }
+  },
+
+  data(){
+        return{
+        user: null
+    }},
+    async created(){
+        const response =await axios.get('user');
+
+        console.log(response)
+        // this.user = response.data.user;
+        this.$store.dispatch('user', response.data.user )
+    }
 };
 </script>
 

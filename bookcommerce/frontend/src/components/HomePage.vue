@@ -7,19 +7,13 @@
 </template>
 
 <script>
-    import axios from 'axios';
+import {mapGetters} from 'vuex';
+
 
    export default {
     name: 'HomePage',
-    data(){
-        return{
-        user: null
-    }},
-    async created(){
-        const response =await axios.get('user');
-
-        console.log(response)
-        this.user = response.data.user;
-    }
+    computed: {
+    ...mapGetters(['user'])
+  }
    }
 </script>

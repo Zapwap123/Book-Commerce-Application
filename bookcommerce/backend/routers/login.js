@@ -20,6 +20,8 @@ router.post("/", async (req, res) => {
       );
 
       res.json({ status: "ok", data: token });
+    } else {
+      res.json({ status: "error", error: "Invalid username/password" });
     }
   } catch (error) {
     console.log(error);

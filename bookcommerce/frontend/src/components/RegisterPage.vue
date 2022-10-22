@@ -1,7 +1,12 @@
 <template><div class="card" style="width: 40rem; margin:auto; margin-top: 5%;">
     <div class="card-body">
-      <h3 class="card-title">Sign Up</h3>
       <form @submit.prevent="handleSubmit">
+        
+        <error v-if="error" :error="error" />
+
+        <h3 class="card-title">Sign Up</h3>
+
+
         <div class="form-group">
           <label>Username</label>
           <input 
@@ -44,15 +49,20 @@
 
 <script>
    import axios from 'axios';
+   import Error from './ErrorPage.vue';
 
    export default {
     name: 'RegisterPage',
+    components:{
+        Error
+    },
     data() {
         return {
             username:"",
             password:"",
             password_confirm:"",
             role:"user",
+            error:"",
         }
     },
     methods: {
@@ -67,7 +77,13 @@
             const response = await axios.post('register', data)
             
             console.log(response);
-            this.$router.push('/login')
+
+            if(response.data.status === "ok"){
+                this.$router.push('/login')
+
+            }else{
+                this.error = response.data.error;
+            }
         }
     }
    }

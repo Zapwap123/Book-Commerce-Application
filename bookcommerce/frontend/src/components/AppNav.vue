@@ -14,7 +14,8 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+
+      <ul class="navbar-nav mr-auto" v-if="!user">
         <li class="nav-item active">
           <router-link class="nav-link" to="/home"
             >Home </router-link>
@@ -25,10 +26,19 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/register">Sign Up</router-link>
         </li>
+      </ul>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
+      <ul class="navbar-nav mr-auto" v-if="user">
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/home"
+            >Home </router-link>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" 
+          @click="handlClick"
+          >Logout</a>
+        </li>
+
       </ul>
       
     </div>
@@ -36,7 +46,19 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
   name: "AppNav",
+  methods:{
+    handlClick(){
+      localStorage.removeItem('token');
+      this.$store.dispatch('user', null)
+      this.$router.push('/');
+    }
+  },
+  computed: {
+    ...mapGetters(['user'])
+  }
 };
 </script>
