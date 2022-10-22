@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
       },
     });
   } catch (error) {
-    console.log("error in authenticate middleWare : ", error);
+    console.log("UNAUTHORIZED");
     res.json({ status: "error", error: "UNAUTHORIZED" });
   }
 });

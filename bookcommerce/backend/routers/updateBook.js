@@ -11,17 +11,22 @@ router.post("/", async (req, res) => {
 
   if (user.role === "admin") {
     try {
+      const dateTime = new Date();
+
       samplePicture.mv(
-        `${__dirname}/uploads/${title}-${samplePicture.name}`,
+        `${__dirname}/uploads/${title}-${samplePicture.name}-${dateTime}`,
         async function (err) {
           if (err) {
-            console.log(err);
-            return res.status(500).send({ msg: "Error occured" });
+            // console.log(err);
+            return res.json({
+              status: "error",
+              error: "Image not Uploaded",
+            });
           }
         }
       );
 
-      let picture = `/${title}-${samplePicture.name}`;
+      let picture = `/${title}-${samplePicture.name}-${dateTime}`;
 
       const response = await Book.updateOne(
         { book_id },

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "./components/LoginPage.vue";
 import Register from "./components/RegisterPage.vue";
 import Home from "./components/HomePage.vue";
+import AddBook from "./components/AddBookPage.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/additem",
+    name: "AddToItems",
+    component: AddBook,
   },
 ];
 
