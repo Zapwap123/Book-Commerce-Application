@@ -1,6 +1,6 @@
 <template>
 
-<div class="card" style="width: 18rem;" v-for="book in books" :key="book.id">
+<div class="card d-flex justify-content-around" style="width: 20rem; display:inline; margin:30px;" v-for="book in books" :key="book.id">
   <img class="card-img-top" :src="`http://localhost:6080/api/upload`+book.picture" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{book.title}}</h5>
@@ -15,7 +15,7 @@
 import axios from 'axios';
 
 export default {
- name: 'HomePage',
+ name: 'DisplayBooksPage',
  data(){
         return {
             books: []
@@ -25,7 +25,7 @@ export default {
     async loadBooks(){
         await axios.get('allbooks')
             .then(function( response ){
-                this.books = response.data;
+                this.books = response.data.data;
             }.bind(this));
 
             console.log(this.books);

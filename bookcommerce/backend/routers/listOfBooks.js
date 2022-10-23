@@ -1,15 +1,17 @@
 const router = require("express").Router();
 const Book = require("../models/book");
 
-router.get("/", async (req, res) => {
-  try {
-    response = await Book.find().toArray();
-
-    console.log("List of all books successfully retrived: ", response);
-    res.json({ status: "ok", data: response });
-  } catch (error) {
-    res.json({ status: "error", error: "Unable to retrive data" });
-  }
+router.get("/", async function (req, res) {
+  // let response = await Book.find().toArray();
+  // res.json({ status: "ok", data: response });
+  await Book.find((err, data) => {
+    if (err) {
+      console.log("Booklist Error:  " + err);
+      res.json({ status: "error", error: err });
+    } else {
+      res.json({ status: "ok", data: data });
+    }
+  });
 });
 
 module.exports = router;

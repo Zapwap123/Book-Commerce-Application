@@ -61,8 +61,11 @@ app.use(
   })
 );
 
-app.use(express.static("public"));
-app.use("/upload", express.static("routers/uploads"));
+// var publicDir = require("path").join(__dirname, "uploads");
+// app.use(express.static("/upload", publicDir));
+app.use("/api/upload", express.static("routers/uploads"));
+
+// app.use(express.static("public"));
 
 // Api Routes for accessing the all services
 app.use("/api/register", userRegistration);
