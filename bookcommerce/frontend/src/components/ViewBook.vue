@@ -1,5 +1,5 @@
-<template>
-    <div class="card" style="width: 40rem; margin:auto; margin-top: 5%;">
+<template> 
+       <div class="card" style="width: 40rem; margin:auto; margin-top: 5%;">
         <div class="card-body">
             <form enctype="multipart/form-data" @submit.prevent="handleSubmit">
 
@@ -10,7 +10,7 @@
                 New Book
                 </h3>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                 <label>Book Image</label>
                 <input
                 type="file" 
@@ -19,17 +19,18 @@
                 v-on:change="onChangeFileUpload()" 
                 class="form-control" 
                 placeholder ="image" />        
-                </div>
+                </div> -->
 
                 <div class="form-group">
                 <label>Title</label>
                 <input 
-                type="text" 
+                type="text"
                 class="form-control" 
                 placeholder ="Title"
                 v-model="title" />        
                 </div>
         
+                <!-- :value="book.description"  -->
 
                 <div class="form-group">
                 <label>Description</label>
@@ -44,7 +45,7 @@
                 <label>Quantity</label>
                 <input 
                 type="number" 
-                class="form-control" 
+                class="form-control"
                 placeholder ="quantity" 
                 v-model="quantity" />        
                 </div>
@@ -54,31 +55,37 @@
     
         </div>
     </div>
+    </template>
     
-</template>
-
-<script>
-// import {mapGetters} from 'vuex';
-   import axios from 'axios';
-   import Error from './ErrorPage.vue';
-
-   export default {
-    name: 'AddBookPage',
-    components:{
-        Error
-    },
-    data() {
-        return {
-            title:"",
-            description:"", 
-            quantity:"",            
-            file:"",
-            // token: "",
-            error:"",
+    <script>
+    import axios from 'axios';
+    
+    export default {
+     name: 'ViewBook',
+     data(){
+            return {
+                title:"",
+                description:"", 
+                quantity:"",            
+                file:"",
+                book_id: this.$route.params.id,
+                book: ""
+            }
+        },
+     methods: {
+        async loadBooks(){
+            await axios.get(`book/${this.book_id}`)
+                .then(function( response ){
+                    this.book = response.data.data;
+                }.bind(this));
+    
+                console.log(this.books);
         }
     },
-    methods: {
-        async handleSubmit(){
+    created(){
+        this.loadBooks()
+     },
+     async handleSubmit(){
 
             let formData = new FormData();
             formData.append('title',this.title);
@@ -101,5 +108,4 @@
         this.file = this.$refs.file.files[0];
       }
     }
-}
-</script>
+    </script>

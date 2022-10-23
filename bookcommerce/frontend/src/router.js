@@ -5,6 +5,7 @@ import Home from "./components/HomePage.vue";
 import AddBook from "./components/AddBookPage.vue";
 import DisplayBooks from "./components/DisplayBooksPage.vue";
 import AdminBooks from "./components/AdminBookList.vue";
+import ViewBook from "./components/ViewBook.vue";
 
 const routes = [
   {
@@ -42,6 +43,11 @@ const routes = [
     path: "/adminbooks",
     name: "AdminBooks",
     component: AdminBooks,
+  },
+  {
+    path: "/viewbook/:id",
+    name: "ViewBook",
+    component: ViewBook,
   },
 ];
 
