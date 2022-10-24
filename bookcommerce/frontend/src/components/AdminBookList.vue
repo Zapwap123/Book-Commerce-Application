@@ -13,7 +13,7 @@
       <td>{{book.quantity}}</td>
       <td>
       <router-link :to="`/viewbook/`+ book._id" class="btn btn-primary">View</router-link>
-      <a href="#" class="btn btn-danger">Delete</a>
+      <button class="btn btn-danger" @click="deleteData(book._id)">Delete</button>
       </td>
     </tr>    
   </tbody>
@@ -27,7 +27,7 @@
      name: 'AdminBookList',
      data(){
             return {
-                books: []
+                books: [],
             }
         },
      methods: {
@@ -38,7 +38,18 @@
                 }.bind(this));
     
                 console.log(this.books);
-        }
+        },
+        async deleteData(bookID) {
+            const data= {
+                book_id: bookID,
+            };
+
+            await axios.post("deletebook" ,data)
+                .then(response => {
+                console.log(response);
+                this.$router.push('/')
+    });
+},
     },
     created(){
         this.loadBooks()

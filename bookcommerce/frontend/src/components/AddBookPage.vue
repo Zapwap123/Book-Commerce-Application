@@ -91,7 +91,7 @@
             console.log(response);
 
             if(response.data.status === "ok"){
-            this.$router.push('/');
+            this.$router.push('/adminbooks');
             }else{
                 this.error = response.data.error;
             }
