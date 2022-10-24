@@ -1,6 +1,6 @@
 <template>
 
-<div class="card d-flex justify-content-around" style="width: 20rem; display:inline; margin:30px;" v-for="book in books" :key="book.id">
+<div class="card" style="width: 20rem; display: inline-block; margin:30px;" v-for="book in books" :key="book.id">
   <img class="card-img-top" :src="`http://localhost:6080/api/upload`+book.picture" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{book.title}}</h5>
