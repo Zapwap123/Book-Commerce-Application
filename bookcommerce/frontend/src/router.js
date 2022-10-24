@@ -6,6 +6,7 @@ import AddBook from "./components/AddBookPage.vue";
 import DisplayBooks from "./components/DisplayBooksPage.vue";
 import AdminBooks from "./components/AdminBookList.vue";
 import ViewBook from "./components/ViewBook.vue";
+import RegisterAdmin from "./components/RegisterAdminPage.vue";
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: "/viewbook/:id",
     name: "ViewBook",
     component: ViewBook,
+  },
+  {
+    path: "/registeradmin",
+    name: "RegisterAdmin",
+    component: RegisterAdmin,
   },
 ];
 

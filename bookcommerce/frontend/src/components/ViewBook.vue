@@ -7,7 +7,7 @@
 
                 <h3 class="card-title" 
                 style="display: flex; align-items: center; justify-content: center;">
-                New Book
+                Book Information
                 </h3>
 
                 <!-- <div class="form-group">
@@ -48,9 +48,9 @@
                 class="form-control"
                 placeholder ="quantity" 
                 v-model="quantity" />        
-                </div>
+                </div><br />
 
-                <button class="btn btn-primary btn-block">Add Book</button>    
+                <button class="btn btn-primary btn-block">Edit Book</button>    
             </form>
     
         </div>
@@ -74,6 +74,8 @@
         },
      methods: {
         async loadBooks(){
+            console.log(this.book_id);
+
             await axios.get(`book/${this.book_id}`)
                 .then(function( response ){
                     this.book = response.data.data;
@@ -93,7 +95,7 @@
             formData.append('quantity',this.quantity);
             formData.append('file', this.file);
 
-            const response = await axios.post('addbook', formData)
+            const response = await axios.post('bookupdate', formData)
             
             console.log(response);
 

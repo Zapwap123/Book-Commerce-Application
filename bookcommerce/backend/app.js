@@ -79,6 +79,6 @@ app.use("/api/allbooks", getBookList);
 app.use("/api/addtocart", addBookToCart);
 app.use("/api/carthistory", cartHistoryOfUsers);
 app.use("/api/user", userVerification);
-app.use("/api/book/:id", singleBook);
+app.use("/api/book", singleBook);
 
 app.listen(PORT, () => console.log("Listening on port " + PORT));

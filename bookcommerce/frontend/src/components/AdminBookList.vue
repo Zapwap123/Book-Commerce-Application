@@ -12,8 +12,8 @@
       <td>{{book.title}}</td>
       <td>{{book.quantity}}</td>
       <td>
-      <router-link :to="`/viewbook/`+ book.id" class="btn btn-primary">View</router-link>
-      <a href="#" class="btn btn-primary">Delete</a>
+      <router-link :to="`/viewbook/`+ book._id" class="btn btn-primary">View</router-link>
+      <a href="#" class="btn btn-danger">Delete</a>
       </td>
     </tr>    
   </tbody>

@@ -7,7 +7,7 @@
 
                 <h3 class="card-title" 
                 style="display: flex; align-items: center; justify-content: center;">
-                New Book
+                Create New Book
                 </h3>
 
                 <div class="form-group">

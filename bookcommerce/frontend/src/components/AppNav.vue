@@ -28,10 +28,56 @@
         </li>
       </ul>
 
+      <!-- <ul class="navbar-nav mr-auto" v-if="user">
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/home"
+            >Home </router-link>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" 
+          @click="handlClick"
+          >Logout</a>
+        </li>
+
+      </ul> -->
+
+      <!-- <ul class="navbar-nav mr-auto" v-if="user">
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/home"
+            >Home </router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/books"
+            >Books </router-link>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" 
+          @click="handlClick"
+          >Logout</a>
+        </li>
+
+      </ul> -->
+
       <ul class="navbar-nav mr-auto" v-if="user">
         <li class="nav-item active">
           <router-link class="nav-link" to="/home"
             >Home </router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link class="nav-link" to="/books"
+            >Books </router-link>
+        </li>
+        <li class="nav-item active" v-if="user.role===`admin`">
+          <router-link class="nav-link" to="/adminbooks"
+            >Admin Books </router-link>
+        </li>
+        <li class="nav-item active" v-if="user.role===`admin`">
+          <router-link class="nav-link" to="/additem"
+            >Add Book </router-link>
+        </li>
+        <li class="nav-item active" v-if="user.role===`admin`">
+          <router-link class="nav-link" to="/registeradmin"
+            >Register Administrator </router-link>
         </li>
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link" 
