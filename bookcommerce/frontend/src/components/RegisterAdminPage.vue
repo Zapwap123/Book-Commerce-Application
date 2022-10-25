@@ -31,7 +31,7 @@
           class="form-control" 
           placeholder =" Confirm Password"
           v-model="password_confirm" />        
-      </div>
+      </div><br />
   
       <button 
       class="btn btn-primary btn-block"
@@ -79,7 +79,7 @@
             console.log(response);
 
             if(response.data.status === "ok"){
-                this.$router.push('/login')
+                location.reload()
 
             }else{
                 this.error = response.data.error;

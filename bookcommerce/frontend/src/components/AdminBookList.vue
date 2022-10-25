@@ -13,7 +13,7 @@
       <td>{{book.quantity}}</td>
       <td>
       <router-link :to="`/viewbook/`+ book._id" class="btn btn-primary">View</router-link>
-      <button class="btn btn-danger" @click="deleteData(book._id)">Delete</button>
+      {{"  "}}<button class="btn btn-danger" @click="deleteData(book._id)">Delete</button>
       </td>
     </tr>    
   </tbody>

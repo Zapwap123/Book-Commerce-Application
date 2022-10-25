@@ -48,6 +48,7 @@
                 placeholder ="quantity" 
                 v-model="quantity" />        
                 </div>
+                <br />
 
                 <button class="btn btn-primary btn-block">Add Book</button>    
             </form>
@@ -91,7 +92,8 @@
             console.log(response);
 
             if(response.data.status === "ok"){
-            this.$router.push('/adminbooks');
+            // this.$router.push('/adminbooks');
+            location.reload()
             }else{
                 this.error = response.data.error;
             }

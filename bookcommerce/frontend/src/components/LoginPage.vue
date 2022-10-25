@@ -27,6 +27,7 @@
         placeholder ="password" 
         v-model="password" />        
     </div>
+    <br />
 
     <button class="btn btn-primary btn-block">Login</button>
     <h4>Not registed? <router-link to="/register">Sign Up</router-link></h4>
