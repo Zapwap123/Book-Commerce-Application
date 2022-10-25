@@ -90,10 +90,11 @@
      async handleSubmit(){
 
             let formData = new FormData();
+            formData.append('book_id',this.book_id);
             formData.append('title',this.title);
             formData.append('description', this.description);
             formData.append('quantity',this.quantity);
-            formData.append('file', this.file);
+           // formData.append('file', this.file);
 
             const response = await axios.post('bookupdate', formData)
             
@@ -106,8 +107,8 @@
             }
 
         },
-        onChangeFileUpload(){
-        this.file = this.$refs.file.files[0];
-      }
+        //onChangeFileUpload(){
+       // this.file = this.$refs.file.files[0];
+      //}
     }
     </script>

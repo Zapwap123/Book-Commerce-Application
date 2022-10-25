@@ -7,6 +7,7 @@ import DisplayBooks from "./components/DisplayBooksPage.vue";
 import AdminBooks from "./components/AdminBookList.vue";
 import ViewBook from "./components/ViewBook.vue";
 import RegisterAdmin from "./components/RegisterAdminPage.vue";
+import ShoppingCart from "./components/ShoppingCartPage.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/registeradmin",
     name: "RegisterAdmin",
     component: RegisterAdmin,
+  },
+  {
+    path: "/cart",
+    name: "ShoppingCart",
+    component: ShoppingCart,
   },
 ];
 

@@ -44,7 +44,7 @@ router.post("/", async (req, res) => {
     // let picture = `/${title}-${samplePicture.name}-${dateTime}`;
 
     const response = await Book.updateOne(
-      { book_id },
+      { _id: book_id },
       {
         $set: { title, description, quantity },
       }

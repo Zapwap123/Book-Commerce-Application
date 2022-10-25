@@ -79,6 +79,11 @@
           <router-link class="nav-link" to="/registeradmin"
             >Register Administrator </router-link>
         </li>
+        <li class="nav-item active" >
+          <router-link class="btn btn-primary nav-link" to="/cart"
+            >Cart </router-link>
+        </li>
+        <!--  -->
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link" 
           @click="handlClick"

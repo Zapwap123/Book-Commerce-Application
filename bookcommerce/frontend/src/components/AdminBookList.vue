@@ -47,7 +47,7 @@
             await axios.post("deletebook" ,data)
                 .then(response => {
                 console.log(response);
-                this.$router.push('/')
+                location.reload()
     });
 },
     },

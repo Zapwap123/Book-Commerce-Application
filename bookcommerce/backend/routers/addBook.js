@@ -68,7 +68,7 @@ router.post("/", async (req, res) => {
         res.json({ status: "error", error: "Unable to add book" });
       })
       .then((data) => {
-        res.send(data);
+        res.json({ status: "ok", data });
       });
   } catch (error) {
     res.json({ status: "error", error: "Unable to add book" });
