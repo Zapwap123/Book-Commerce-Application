@@ -30,7 +30,7 @@ Book E-Commerce Application
     <li>Create a MongoDB database</li>
     <li>Copy the connection string</li>
     <li>navigate to ..\backend\app.js file, on line 36 and replace the sting inbetween the '...' and then type your details including mongodb password to connect 
-      <p>the application to your mongodb database</p>
+      the application to your mongodb database
     </li>
     <li>Type (npm start) this will start the backend applicaton on port 6080, at this point, frontend and backend applications are able to interact with each other.</li>
     </ul>
