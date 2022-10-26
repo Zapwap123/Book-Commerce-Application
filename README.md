@@ -25,6 +25,7 @@ Book E-Commerce Application
     <li>Type (npm install or npm i) this is to install the packages needed to run the backend application.</li>
     </ul>
 </p>
+<br />
 <p>4. MongoDB Connection</p>
 <p><ul>
     <li>Create a MongoDB database</li>
